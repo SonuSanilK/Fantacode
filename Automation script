@@ -1,0 +1,34 @@
+public void setup() {
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+
+    
+    @Test
+    public void googleSearchAutomation() {
+        
+        driver.get("https://www.amazon.com");
+
+       
+        WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
+        searchBox.sendKeys("amazon basics");
+
+        WebElement searchButton = driver.findElement(By.xpath("//*[@id="nav-search-submit-button"]"));
+        searchButton.click();
+	Thread.sleep(2000);
+	WebElement searchButton = driver.findElement(By.xpath("//*[@id="p_123/445047"]/span/a/span"));
+        searchButton.click();
+	Thread.sleep(2000);
+	WebElement searchButton = driver.findElement(By.xpath("//*[@id="c701df0d-0198-4d38-98cb-d906c34f2df1"]/div/div/span/div/div/div[2]/div[1]/a/h2/span"));
+        searchButton.click();
+	Thread.sleep(2000);
+
+	WebElement searchButton = driver.findElement(By.id("id="add-to-cart-button""));
+        searchButton.click();
+	Thread.sleep(2000);
+	WebElement searchButton = driver.findElement(By.id("nav-cart"));
+        searchButton.click();
+        Thread.sleep(2000);
+	driver.close();
+    }
